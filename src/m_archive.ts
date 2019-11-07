@@ -117,6 +117,7 @@ export abstract class M_Archive extends Parent().with(
      * */
     protected extract_Archive_FromTransmission(transmission: t_transmission): t_archive {
 
+        // TODO type here is fudged. the real type is t_fileContent from Storage
         //const transmission_content: t_fileContent[] = transmission.Content;
         const transmission_content: i_map<any>[] = transmission.Content;
 
