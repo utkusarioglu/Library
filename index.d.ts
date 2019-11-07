@@ -9,7 +9,7 @@ declare module '@utkusarioglu/library' {
     export { Book } from "@utkusarioglu/library/book";
     export { M_Library } from "@utkusarioglu/library/m_library";
     export { M_Archive } from "@utkusarioglu/library/m_archive";
-    export { t_archiveTab } from "@utkusarioglu/library/t_library";
+    export { t_archiveTab, t_archive } from "@utkusarioglu/library/t_library";
 }
 
 declare module '@utkusarioglu/library/book' {
