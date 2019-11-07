@@ -10,7 +10,7 @@
   },
   "scripts": {
     "clean": "shx rm -rf _bundles lib lib-esm index.d.ts package-lock.json",
-    "declaration": "dts-bundle --name @utkusarioglu/library --main lib/library.d.ts --out ../index.d.ts",
+    "declaration": "dts-bundle --name @utkusarioglu/library --main lib/index.d.ts --out ../index.d.ts",
     "build": "npm run clean && tsc && tsc -m es6 --outDir lib-esm && webpack && npm run declaration",
     "test": "jest"
   },

@@ -19,9 +19,7 @@
     "declarationMap": false /* Generates a sourcemap for each corresponding '.d.ts' file. */
   },
   "include": [
-    "src/m_library.ts",
-    "src/book.ts",
-    "src/m_archive.ts"
+    "src/index.ts"
   ],
   "exclude": [
     "node_modules"

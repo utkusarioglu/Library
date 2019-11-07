@@ -1,8 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const mixer_1 = require("@utkusarioglu/mixer");
-const namespace_1 = require("@utkusarioglu/namespace");
-class Book extends mixer_1.Parent().with(namespace_1.M_Namespace) {
+import { Parent } from "@utkusarioglu/mixer";
+import { M_Namespace } from "@utkusarioglu/namespace";
+export class Book extends Parent().with(M_Namespace) {
     constructor(namespace) {
         super();
         this._book = {};
@@ -48,5 +46,4 @@ class Book extends mixer_1.Parent().with(namespace_1.M_Namespace) {
         return this;
     }
 }
-exports.Book = Book;
 //# sourceMappingURL=book.js.map
