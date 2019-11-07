@@ -1,6 +1,6 @@
 {
   "name": "@utkusarioglu/library",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "index.js",
   "author": {
@@ -27,11 +27,11 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "@utkusarioglu/controller": "https://github.com/utkusarioglu/Controller.git",
     "@utkusarioglu/namespace": "https://github.com/utkusarioglu/namespace.git",
-    "@utkusarioglu/mixer": "https://github.com/utkusarioglu/Mixer.git",
-    "@utkusarioglu/object-assist": "https://github.com/utkusarioglu/ObjectAssist.git",
     "@utkusarioglu/resolver": "https://github.com/utkusarioglu/Resolver.git",
+    "@utkusarioglu/mixer": "https://github.com/utkusarioglu/Mixer.git",
+    "@utkusarioglu/controller": "https://github.com/utkusarioglu/Controller.git",
+    "@utkusarioglu/object-assist": "https://github.com/utkusarioglu/ObjectAssist.git",
     "@utkusarioglu/string-assist": "https://github.com/utkusarioglu/StringAssist.git"
   },
   "repository": {
