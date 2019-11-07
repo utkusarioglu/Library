@@ -1,13 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const mixer_1 = require("@utkusarioglu/mixer");
-const resolver_1 = require("@utkusarioglu/resolver");
-const controller_1 = require("@utkusarioglu/controller");
-const m_library_1 = require("./m_library");
-const c_library_1 = require("./c_library");
-class M_Archive extends mixer_1.Parent().with(m_library_1.M_Library, controller_1.M_Controller) {
+import { Parent } from "@utkusarioglu/mixer";
+import { Resolution } from "@utkusarioglu/resolver";
+import { M_Controller } from "@utkusarioglu/controller";
+import { M_Library } from "./m_library";
+import { C_Library } from "./c_library";
+export class M_Archive extends Parent().with(M_Library, M_Controller) {
     add_Archive_FromResolutionInstruction(resolution_instruction) {
-        const arg_pool = resolver_1.Resolution.extract_ArgumentPool_fromResolutionInstruction(resolution_instruction);
+        const arg_pool = Resolution.extract_ArgumentPool_fromResolutionInstruction(resolution_instruction);
         const sender = arg_pool[0][0];
         const archive = arg_pool[0][1];
         this.add_Archive(archive);
@@ -38,7 +36,7 @@ class M_Archive extends mixer_1.Parent().with(m_library_1.M_Library, controller_
     }
     add_File(file) {
         file.sniff(["DESCRIPTION"], () => {
-            throw new Error(c_library_1.C_Library.E_AbsentFileDescriptor);
+            throw new Error(C_Library.E_AbsentFileDescriptor);
         }, (description) => {
             delete file.DESCRIPTION;
             Object.entries(file).forEach(([tab_name, tab]) => {
@@ -92,5 +90,4 @@ class M_Archive extends mixer_1.Parent().with(m_library_1.M_Library, controller_
         return this;
     }
 }
-exports.M_Archive = M_Archive;
 //# sourceMappingURL=m_archive.js.map

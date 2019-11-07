@@ -407,8 +407,8 @@
     "@types/yargs-parser" "*"
 
 "@utkusarioglu/controller@https://github.com/utkusarioglu/Controller.git":
-  version "0.0.2"
-  resolved "https://github.com/utkusarioglu/Controller.git#04e3ec978b5cabbbd0c28f4613c028657db934d8"
+  version "0.0.7"
+  resolved "https://github.com/utkusarioglu/Controller.git#eeaea9610f5ac01f3abe2db2a4e63e22df4628c1"
   dependencies:
     "@utkusarioglu/namespace" "https://github.com/utkusarioglu/namespace.git"
     "@utkusarioglu/object-assist" "https://github.com/utkusarioglu/ObjectAssist.git"

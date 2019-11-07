@@ -47,6 +47,9 @@
     <TypeScriptCompile Include="src\c_library.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\m_archive.ts" />
     <TypeScriptCompile Include="src\m_library.ts" />
     <TypeScriptCompile Include="src\t_library.ts" />

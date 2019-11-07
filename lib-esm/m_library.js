@@ -1,10 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const mixer_1 = require("@utkusarioglu/mixer");
-const c_library_1 = require("./c_library");
-const namespace_1 = require("@utkusarioglu/namespace");
-const book_1 = require("./book");
-class M_Library extends mixer_1.Parent().with(namespace_1.M_Namespace) {
+import { Parent } from "@utkusarioglu/mixer";
+import { C_Library } from "./c_library";
+import { M_Namespace } from "@utkusarioglu/namespace";
+import { Book } from "./book";
+export class M_Library extends Parent().with(M_Namespace) {
     constructor() {
         super(...arguments);
         this._book_names = [];
@@ -23,7 +21,7 @@ class M_Library extends mixer_1.Parent().with(namespace_1.M_Namespace) {
     }
     get_LibraryBase() {
         if (!this._library_base) {
-            throw new Error(c_library_1.C_Library.E_LibraryBaseBeforeSet);
+            throw new Error(C_Library.E_LibraryBaseBeforeSet);
         }
         return this._library_base;
     }
@@ -39,9 +37,9 @@ class M_Library extends mixer_1.Parent().with(namespace_1.M_Namespace) {
     }
     add_Book(book_name, book_content) {
         this.get_LibraryBase().pave(book_name, () => {
-            throw new Error(c_library_1.C_Library.E_BookNameTaken);
+            throw new Error(C_Library.E_BookNameTaken);
         }, () => {
-            const new_book = new book_1.Book(`${this.get_GlobalNamespace()}/Library/${book_name}`);
+            const new_book = new Book(`${this.get_GlobalNamespace()}/Library/${book_name}`);
             this.add_BookName(book_name);
             if (book_content !== undefined) {
                 new_book.add_BookContent(book_content);
@@ -52,7 +50,7 @@ class M_Library extends mixer_1.Parent().with(namespace_1.M_Namespace) {
     }
     get_Book(book_name) {
         return this.get_LibraryBase().sniff(book_name, () => {
-            throw new Error(c_library_1.C_Library.E_BookBeforeDeclaration);
+            throw new Error(C_Library.E_BookBeforeDeclaration);
         }, (book) => {
             return book;
         });
@@ -76,7 +74,7 @@ class M_Library extends mixer_1.Parent().with(namespace_1.M_Namespace) {
             });
         }
         else {
-            throw new Error(c_library_1.C_Library.E_FaultyCollectionSpec);
+            throw new Error(C_Library.E_FaultyCollectionSpec);
         }
         return collection;
     }
@@ -84,5 +82,4 @@ class M_Library extends mixer_1.Parent().with(namespace_1.M_Namespace) {
         return this.get_SomeBooks(this.get_AllBookNames());
     }
 }
-exports.M_Library = M_Library;
 //# sourceMappingURL=m_library.js.map
