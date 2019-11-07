@@ -32,6 +32,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="webpack.config.js" />
