@@ -1,6 +1,6 @@
 {
   "name": "@utkusarioglu/library",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "index.js",
   "author": {
@@ -32,7 +32,6 @@
     "@utkusarioglu/mixer": "https://github.com/utkusarioglu/Mixer.git",
     "@utkusarioglu/object-assist": "https://github.com/utkusarioglu/ObjectAssist.git",
     "@utkusarioglu/resolver": "https://github.com/utkusarioglu/Resolver.git",
-    "@utkusarioglu/starel-globals": "https://github.com/utkusarioglu/StarelGlobals.git",
     "@utkusarioglu/string-assist": "https://github.com/utkusarioglu/StringAssist.git"
   },
   "repository": {

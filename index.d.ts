@@ -3,7 +3,6 @@
 //   ../@utkusarioglu/namespace
 //   ../@utkusarioglu/controller
 //   ../@utkusarioglu/resolver
-//   ../@utkusarioglu/starel-globals
 
 declare module '@utkusarioglu/library' {
     export { Book } from "@utkusarioglu/library/book";
@@ -83,7 +82,6 @@ declare module '@utkusarioglu/library/m_archive' {
 }
 
 declare module '@utkusarioglu/library/t_library' {
-    import { i_map, t_identityFunc } from "@utkusarioglu/starel-globals";
     export type t_libraryContent = any;
     export type t_archive = Array<t_archiveIsle | i_archiveFile>;
     export type t_archiveIsle = Array<t_archiveRack | i_archiveFile>;
@@ -95,7 +93,9 @@ declare module '@utkusarioglu/library/t_library' {
         DESCRIPTION: i_fileDescriptor;
         [shelf_name: string]: t_archiveTab;
     }
-    export type t_archiveTab = i_map<any>;
+    export type t_archiveTab = {
+        [archive_tab_name: string]: any;
+    };
     export interface i_libraryBook {
         [chapter_name: string]: any;
     }
@@ -112,7 +112,9 @@ declare module '@utkusarioglu/library/t_library' {
         BOOK: string;
     }
     export type t_libraryCollection = t_archiveTab;
-    export type t_resourceCollectionRecipe = i_map<string>;
+    export type t_resourceCollectionRecipe = {
+        [recipe_name: string]: string;
+    };
     export enum e_archiveDepth {
         Archive = 0,
         Isle = 1,
@@ -137,6 +139,6 @@ declare module '@utkusarioglu/library/t_library' {
         Source = 10,
         Reference = 11
     }
-    export type t_archiveTabWrapperFunc = t_identityFunc<t_archiveTab>;
+    export type t_archiveTabWrapperFunc = (unwrapped: t_archiveTab) => t_archiveTab;
 }
 

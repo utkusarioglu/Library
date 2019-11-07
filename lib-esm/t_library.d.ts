@@ -1,4 +1,3 @@
-import { i_map, t_identityFunc } from "@utkusarioglu/starel-globals";
 export declare type t_libraryContent = any;
 export declare type t_archive = Array<t_archiveIsle | i_archiveFile>;
 export declare type t_archiveIsle = Array<t_archiveRack | i_archiveFile>;
@@ -10,7 +9,9 @@ export interface i_archiveFile {
     DESCRIPTION: i_fileDescriptor;
     [shelf_name: string]: t_archiveTab;
 }
-export declare type t_archiveTab = i_map<any>;
+export declare type t_archiveTab = {
+    [archive_tab_name: string]: any;
+};
 export interface i_libraryBook {
     [chapter_name: string]: any;
 }
@@ -27,7 +28,9 @@ export interface i_fileDescriptor {
     BOOK: string;
 }
 export declare type t_libraryCollection = t_archiveTab;
-export declare type t_resourceCollectionRecipe = i_map<string>;
+export declare type t_resourceCollectionRecipe = {
+    [recipe_name: string]: string;
+};
 export declare enum e_archiveDepth {
     Archive = 0,
     Isle = 1,
@@ -52,4 +55,4 @@ export declare enum e_resourceDepth {
     Source = 10,
     Reference = 11
 }
-export declare type t_archiveTabWrapperFunc = t_identityFunc<t_archiveTab>;
+export declare type t_archiveTabWrapperFunc = (unwrapped: t_archiveTab) => t_archiveTab;

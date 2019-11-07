@@ -1,4 +1,3 @@
-import { i_map, t_identityFunc } from "@utkusarioglu/starel-globals";
 
 /**
  * Alias for any denoting library content
@@ -122,7 +121,9 @@ export interface i_archiveFile {
  * @remarks
  * Component: Library
  * */
-export type t_archiveTab = i_map<any>
+export type t_archiveTab = {
+    [archive_tab_name: string]: any
+}
 
 /**
  * Datatype for internal book content
@@ -206,7 +207,9 @@ export type t_libraryCollection = t_archiveTab;
  * and the value defines the book_name
  * Key: book alias
  * */
-export type t_resourceCollectionRecipe = i_map<string>;
+export type t_resourceCollectionRecipe = {
+    [recipe_name: string]: string
+}
 
 
 
@@ -268,4 +271,4 @@ export enum e_resourceDepth {
 /**
  * Identity function for [[t_archiveTab]]
  * */
-export type t_archiveTabWrapperFunc = t_identityFunc<t_archiveTab>
+export type t_archiveTabWrapperFunc = (unwrapped: t_archiveTab) => t_archiveTab

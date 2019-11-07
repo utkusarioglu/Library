@@ -37,7 +37,6 @@ import {
 } from "@utkusarioglu/resolver";
 //import { t_fileContent } from "../../Kernel/Data/Access/Storage/t_storage";
 import { t_namespace } from "@utkusarioglu/namespace";
-import { i_map } from "@utkusarioglu/starel-globals";
 
 /**
  * Interface for M_Librarian
@@ -119,7 +118,7 @@ export abstract class M_Archive extends Parent().with(
 
         // TODO type here is fudged. the real type is t_fileContent from Storage
         //const transmission_content: t_fileContent[] = transmission.Content;
-        const transmission_content: i_map<any>[] = transmission.Content;
+        const transmission_content: any[] = transmission.Content;
 
         return transmission_content.map((file_content) => {
             return file_content.Content;
