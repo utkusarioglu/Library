@@ -1,6 +1,6 @@
 {
   "name": "@utkusarioglu/library",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "",
   "main": "index.js",
   "author": {
@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@types/jest": "24.0.21",
-    "@types/node": "^8.0.14",
+    "@types/node": "^8.10.59",
     "dts-bundle": "0.7.3",
     "jest": "24.9.0",
     "shx": "^0.3.2",
@@ -30,9 +30,9 @@
     "@utkusarioglu/controller": "git+https://github.com/utkusarioglu/Controller.git",
     "@utkusarioglu/mixer": "git+https://github.com/utkusarioglu/Mixer.git",
     "@utkusarioglu/namespace": "git+https://github.com/utkusarioglu/namespace.git",
-    "@utkusarioglu/object-assist": "https://github.com/utkusarioglu/ObjectAssist.git",
+    "@utkusarioglu/object-assist": "git+https://github.com/utkusarioglu/ObjectAssist.git",
     "@utkusarioglu/resolver": "git+https://github.com/utkusarioglu/Resolver.git",
-    "@utkusarioglu/string-assist": "https://github.com/utkusarioglu/StringAssist.git"
+    "@utkusarioglu/string-assist": "git+https://github.com/utkusarioglu/StringAssist.git"
   },
   "repository": {
     "type": "git",
