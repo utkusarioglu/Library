@@ -3,7 +3,7 @@
  *	COMPONENTS
  */
 import { Parent } from "@utkusarioglu/mixer";
-import { C_Library } from "./c_library";
+import { C_Library } from "../Common/c_library";
 
 /*
  *	MIXINS
@@ -13,7 +13,7 @@ import { M_Namespace } from "@utkusarioglu/namespace";
 /*
  *	LOCALCLASSES
  */
-import { Book } from "./book";
+import { Book } from "../Book/book";
 
 /*
  *	DATATYPES
@@ -23,7 +23,7 @@ import {
     i_libraryBook,
     t_libraryCollection,
     t_resourceCollectionRecipe
-} from "./t_library";
+} from "../Common/t_library";
 
 /**
  * Interface for Library

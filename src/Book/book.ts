@@ -15,7 +15,7 @@ import { M_Namespace, t_namespace } from "@utkusarioglu/namespace";
 import {
     t_libraryContent,
     i_libraryBook
-} from "./t_library";
+} from "../Common/t_library";
 
 /** 
  * Interface for Book 

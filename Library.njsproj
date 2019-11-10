@@ -39,18 +39,21 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
+    <Folder Include="src\Book\" />
+    <Folder Include="src\Mixins\" />
+    <Folder Include="src\Common\" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="src\book.ts" />
-    <TypeScriptCompile Include="src\c_library.ts">
+    <TypeScriptCompile Include="src\Book\book.ts" />
+    <TypeScriptCompile Include="src\Common\c_library.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\index.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="src\m_archive.ts" />
-    <TypeScriptCompile Include="src\m_library.ts" />
-    <TypeScriptCompile Include="src\t_library.ts" />
+    <TypeScriptCompile Include="src\Mixins\m_archive.ts" />
+    <TypeScriptCompile Include="src\Mixins\m_library.ts" />
+    <TypeScriptCompile Include="src\Common\t_library.ts" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
   <ProjectExtensions>

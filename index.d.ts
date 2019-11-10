@@ -5,15 +5,15 @@
 //   ../@utkusarioglu/resolver
 
 declare module '@utkusarioglu/library' {
-    export { Book } from "@utkusarioglu/library/book";
-    export { M_Library } from "@utkusarioglu/library/m_library";
-    export { M_Archive } from "@utkusarioglu/library/m_archive";
-    export { t_archiveTab, t_archive } from "@utkusarioglu/library/t_library";
+    export { Book } from "@utkusarioglu/library/Book/book";
+    export { M_Library } from "@utkusarioglu/library/Mixins/m_library";
+    export { M_Archive } from "@utkusarioglu/library/Mixins/m_archive";
+    export { t_archiveTab, t_archive } from "@utkusarioglu/library/Common/t_library";
 }
 
-declare module '@utkusarioglu/library/book' {
+declare module '@utkusarioglu/library/Book/book' {
     import { M_Namespace, t_namespace } from "@utkusarioglu/namespace";
-    import { t_libraryContent, i_libraryBook } from "@utkusarioglu/library/t_library";
+    import { t_libraryContent, i_libraryBook } from "@utkusarioglu/library/Common/t_library";
     export interface Book extends M_Namespace {
     }
     const Book_base: any;
@@ -31,10 +31,10 @@ declare module '@utkusarioglu/library/book' {
     export {};
 }
 
-declare module '@utkusarioglu/library/m_library' {
+declare module '@utkusarioglu/library/Mixins/m_library' {
     import { M_Namespace } from "@utkusarioglu/namespace";
-    import { Book } from "@utkusarioglu/library/book";
-    import { t_libraryBookName, i_libraryBook, t_libraryCollection, t_resourceCollectionRecipe } from "@utkusarioglu/library/t_library";
+    import { Book } from "@utkusarioglu/library/Book/book";
+    import { t_libraryBookName, i_libraryBook, t_libraryCollection, t_resourceCollectionRecipe } from "@utkusarioglu/library/Common/t_library";
     export interface M_Library extends M_Namespace {
     }
     const M_Library_base: any;
@@ -53,10 +53,10 @@ declare module '@utkusarioglu/library/m_library' {
     export {};
 }
 
-declare module '@utkusarioglu/library/m_archive' {
+declare module '@utkusarioglu/library/Mixins/m_archive' {
     import { M_Controller, M_ControllerEvents } from "@utkusarioglu/controller";
-    import { M_Library } from "@utkusarioglu/library/m_library";
-    import { t_archive, e_archiveDepth, i_archiveFile, t_archiveTab, i_fileDescriptor, t_archiveTabWrapperFunc, t_libraryBookName } from "@utkusarioglu/library/t_library";
+    import { M_Library } from "@utkusarioglu/library/Mixins/m_library";
+    import { t_archive, e_archiveDepth, i_archiveFile, t_archiveTab, i_fileDescriptor, t_archiveTabWrapperFunc, t_libraryBookName } from "@utkusarioglu/library/Common/t_library";
     import { t_transmission } from "@utkusarioglu/controller";
     import { t_resolutionInstruction } from "@utkusarioglu/resolver";
     export interface M_Archive extends M_Controller, M_ControllerEvents, M_Library {
@@ -81,7 +81,7 @@ declare module '@utkusarioglu/library/m_archive' {
     export {};
 }
 
-declare module '@utkusarioglu/library/t_library' {
+declare module '@utkusarioglu/library/Common/t_library' {
     export type t_libraryContent = any;
     export type t_archive = Array<t_archiveIsle | i_archiveFile>;
     export type t_archiveIsle = Array<t_archiveRack | i_archiveFile>;

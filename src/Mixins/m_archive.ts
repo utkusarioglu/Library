@@ -10,7 +10,7 @@ import { Resolution } from "@utkusarioglu/resolver";
  */
 import { M_Controller, M_ControllerEvents } from "@utkusarioglu/controller";
 import { M_Library } from "./m_library";
-import { C_Library } from "./c_library";
+import { C_Library } from "../Common/c_library";
 
 /*
  *	DATATYPES
@@ -28,7 +28,7 @@ import {
     i_fileDescriptor,
     t_archiveTabWrapperFunc,
     t_libraryBookName
-} from "./t_library";
+} from "../Common/t_library";
 import {
     t_transmission
 } from "@utkusarioglu/controller";

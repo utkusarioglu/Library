@@ -1,4 +1,4 @@
-export { Book } from "./book";
-export { M_Library } from "./m_library";
-export { M_Archive } from "./m_archive";
-export { t_archiveTab, t_archive } from "./t_library";
+export { Book } from "./Book/book";
+export { M_Library } from "./Mixins/m_library";
+export { M_Archive } from "./Mixins/m_archive";
+export { t_archiveTab, t_archive } from "./Common/t_library";
