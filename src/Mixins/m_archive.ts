@@ -1,15 +1,28 @@
 
+/* ////////////////////////////////////////////////////////////////////////////
+ *
+ *	IMPORTS
+ *
+ * ///////////////////////////////////////////////////////////////////////// */
+
 /*
- *	COMPONENTS
+ *	DEPENDENCIES
  */
 import { Parent } from "@utkusarioglu/mixer";
 import { Resolution } from "@utkusarioglu/resolver";
+import {
+    M_Controller,
+    M_ControllerEvents
+} from "@utkusarioglu/controller";
 
 /*
  *	MIXINS
  */
-import { M_Controller, M_ControllerEvents } from "@utkusarioglu/controller";
 import { M_Library } from "./m_library";
+
+/*
+ *	CONSTANTS
+ */
 import { C_Library } from "../Common/c_library";
 
 /*
@@ -29,21 +42,28 @@ import {
     t_archiveTabWrapperFunc,
     t_libraryBookName
 } from "../Common/t_library";
-import {
-    t_transmission
-} from "@utkusarioglu/controller";
-import {
-    t_resolutionInstruction
-} from "@utkusarioglu/resolver";
-//import { t_fileContent } from "../../Kernel/Data/Access/Storage/t_storage";
+import { t_transmission } from "@utkusarioglu/controller";
+import { t_resolutionInstruction } from "@utkusarioglu/resolver";
 import { t_namespace } from "@utkusarioglu/namespace";
 
+
+
+
+
+
+
+/* ////////////////////////////////////////////////////////////////////////////
+ *
+ *	EXPORTS
+ *
+ * ///////////////////////////////////////////////////////////////////////// */
+
 /**
- * Interface for M_Librarian
+ * Interface for M_Archive
  * */
 export interface M_Archive extends
     M_Controller,
-    M_ControllerEvents,
+    // M_ControllerEvents, // Doesn't look like this is necessary
     M_Library
 { }
 
@@ -93,9 +113,10 @@ export abstract class M_Archive extends Parent().with(
         resolution_instruction: t_resolutionInstruction
     ): this {
 
-        const arg_pool = Resolution.extract_ArgumentPool_fromResolutionInstruction(
-            resolution_instruction
-        );
+        const arg_pool =
+            Resolution.extract_ArgumentPool_fromResolutionInstruction(
+                resolution_instruction
+            );
         const sender: t_namespace = arg_pool[0][0];
         const archive: t_archive = arg_pool[0][1];
 
@@ -210,16 +231,22 @@ export abstract class M_Archive extends Parent().with(
         tab: t_archiveTab
     ): this {
 
-        Object.entries(tab as t_archiveTab)
-            .forEach(([leaf_name, leaf]) => {
+        if (tab !== undefined) {
+            Object.entries(tab as t_archiveTab)
+                .forEach(([leaf_name, leaf]) => {
 
-                const book_name: t_libraryBookName = description.BOOK.toProperCase();
+                    const book_name: t_libraryBookName =
+                        description.BOOK.toProperCase();
 
-                this
-                    .get_Book(book_name)
-                    .add_Chapter(leaf_name, this.get_TabWrapper(book_name, leaf))
+                    this
+                        .get_Book(book_name)
+                        .add_Chapter(leaf_name, this.get_TabWrapper(
+                            book_name,
+                            leaf
+                        ))
 
-            });
+                });
+        }
 
         return this;
     }

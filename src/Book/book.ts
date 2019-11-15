@@ -1,13 +1,14 @@
 ﻿
-/*
- *	COMMON CLASSES
- */
-import { Parent } from "@utkusarioglu/mixer";
+/* ////////////////////////////////////////////////////////////////////////////
+ *
+ *	IMPORTS
+ *
+ * ///////////////////////////////////////////////////////////////////////// */
 
 /*
- *	MIXINS
+ *	DEPENDENCIES
  */
-import { M_Namespace, t_namespace } from "@utkusarioglu/namespace";
+import { M_Namespace } from "@utkusarioglu/namespace";
 
 /*
  *	DATATYPES
@@ -16,6 +17,19 @@ import {
     t_libraryContent,
     i_libraryBook
 } from "../Common/t_library";
+import { t_namespace } from "@utkusarioglu/namespace";
+
+
+
+
+
+
+
+/* ////////////////////////////////////////////////////////////////////////////
+ *
+ *	EXPORTS
+ *
+ * ///////////////////////////////////////////////////////////////////////// */
 
 /** 
  * Interface for Book 
@@ -30,9 +44,7 @@ export interface Book extends
  * @remarks
  * Component: Library
  * */
-export class Book extends Parent().with(
-    M_Namespace
-) {
+export class Book extends M_Namespace {
 
 /*
  * ======================================================== Boundary 1 =========

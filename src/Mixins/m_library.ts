@@ -1,19 +1,26 @@
 
+/* ////////////////////////////////////////////////////////////////////////////
+ *
+ *	IMPORTS
+ *
+ * ///////////////////////////////////////////////////////////////////////// */
+
 /*
- *	COMPONENTS
+ *	DEPENDENCIES
  */
 import { Parent } from "@utkusarioglu/mixer";
-import { C_Library } from "../Common/c_library";
-
-/*
- *	MIXINS
- */
 import { M_Namespace } from "@utkusarioglu/namespace";
+import { M_State } from "@utkusarioglu/state"; 
 
 /*
- *	LOCALCLASSES
+ *	LOCALS
  */
 import { Book } from "../Book/book";
+
+/*
+ *	CONSTANTS
+ */
+import { C_Library } from "../Common/c_library";
 
 /*
  *	DATATYPES
@@ -25,14 +32,24 @@ import {
     t_resourceCollectionRecipe
 } from "../Common/t_library";
 
+
+
+
+
+
+/* ////////////////////////////////////////////////////////////////////////////
+ *
+ *	EXPORTS
+ *
+ * ///////////////////////////////////////////////////////////////////////// */
+
 /**
  * Interface for Library
  * */
 export interface M_Library extends
-    M_Namespace
+    M_Namespace,
+    M_State
 { }
-
-
 
 /**
  * Provides the functionality for handling multiple books and their curration
@@ -43,9 +60,7 @@ export interface M_Library extends
  * @remarks
  * Component: Library
  * */
-export abstract class M_Library extends Parent().with(
-    M_Namespace
-) {
+export abstract class M_Library extends M_Namespace {
 
     /** The root object where the Books will be added */
     private _library_base: any;
