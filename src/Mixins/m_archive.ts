@@ -200,11 +200,14 @@ export abstract class M_Archive extends Parent().with(
 
                 delete file.DESCRIPTION;
 
-                Object.entries(file as i_archiveFile).forEach(([tab_name, tab]) => {
+                if (file !== undefined || file !== null) {
+                    Object.entries(file as i_archiveFile)
+                        .forEach(([tab_name, tab]) => {
 
-                    this.add_Tab(description, tab)
+                            this.add_Tab(description, tab)
 
-                });
+                        });
+                }
             }
         )
 
