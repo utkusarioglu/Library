@@ -239,7 +239,7 @@ export abstract class M_Archive extends Parent().with(
                 .forEach(([leaf_name, leaf]) => {
 
                     const book_name: t_libraryBookName =
-                        description.BOOK.toProperCase();
+                        description.BOOK;
 
                     this
                         .get_Book(book_name)
