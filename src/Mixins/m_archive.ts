@@ -12,7 +12,7 @@ import { Parent } from "@utkusarioglu/mixer";
 import { Resolution } from "@utkusarioglu/resolver";
 import {
     M_Controller,
-    M_ControllerEvents
+    //M_ControllerEvents
 } from "@utkusarioglu/controller";
 
 /*

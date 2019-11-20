@@ -224,7 +224,9 @@ export abstract class M_Library extends M_Namespace {
         return this.get_LibraryBase().sniff(
             book_name,
             () => {
-                throw new Error(C_Library.E_BookBeforeDeclaration);
+                throw new Error(
+                    C_Library.E_BookBeforeDeclaration.subs(book_name)
+                );
             },
             (book) => {
                 return book
