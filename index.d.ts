@@ -62,9 +62,9 @@ declare module '@utkusarioglu/library/Mixins/m_archive' {
     }
     const M_Archive_base: any;
     export abstract class M_Archive extends M_Archive_base {
-        protected add_Archive_FromResolutionInstruction(resolution_instruction: t_resolutionInstruction): this;
+        protected add_Archive_FromResolutionInstruction(resolution_instruction: t_resolutionInstruction, load_order?: Array<string>): this;
         protected extract_Archive_FromTransmission(transmission: t_transmission): t_archive;
-        protected add_Archive(archive: t_archive): this;
+        protected add_Archive(archive: t_archive, load_order?: Array<string>): this;
         protected add_File(file: i_archiveFile): this;
         protected add_Tab(description: i_fileDescriptor, tab: t_archiveTab): this;
         protected disable_Archive_AtDepth(depth: e_archiveDepth): this;

@@ -110,7 +110,8 @@ export abstract class M_Archive extends Parent().with(
      * Component: Library
      */
     protected add_Archive_FromResolutionInstruction(
-        resolution_instruction: t_resolutionInstruction
+        resolution_instruction: t_resolutionInstruction,
+        load_order: Array<string> = [],
     ): this {
 
         const arg_pool =
@@ -120,7 +121,7 @@ export abstract class M_Archive extends Parent().with(
         const sender: t_namespace = arg_pool[0][0];
         const archive: t_archive = arg_pool[0][1];
 
-        this.add_Archive(archive);
+        this.add_Archive(archive, load_order);
         this.announce_LibraryAdded(sender);
 
         return this;
@@ -150,12 +151,16 @@ export abstract class M_Archive extends Parent().with(
      * Calls add_Cabinets for each i_cabinet within the archive
      * 
      * @param archive
+     * @param load_order defines order of books to be loaded
      *
      * @remarks
      * Class: M_Archive
      * Component: Library
      */
-    protected add_Archive(archive: t_archive): this {
+    protected add_Archive(
+        archive: t_archive,
+        load_order: Array<string> = [],
+    ): this {
 
         if (archive.length === 0) {
             console.warn("Empty Archive");
@@ -167,9 +172,21 @@ export abstract class M_Archive extends Parent().with(
             const box: t_archiveBox = shelf;
             const folder: t_archiveFolder = box;
 
-            folder.forEach((file: i_archiveFile) => {
-                this.add_File(file);
-            });
+            if (load_order.length > 0) {
+                load_order.forEach((book_name) => {
+                    folder.forEach((file) => {
+                        if (file.DESCRIPTION.BOOK === book_name) {
+                            this.add_File(file);
+                        }
+                    });
+                });
+            } else {
+                folder.forEach((file: i_archiveFile) => {
+                    this.add_File(file);
+                });
+            }
+
+
 
         }
         return this;
