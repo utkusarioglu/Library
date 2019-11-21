@@ -175,9 +175,13 @@ export abstract class M_Archive extends Parent().with(
             if (load_order.length > 0) {
                 load_order.forEach((book_name) => {
                     folder.forEach((file) => {
-                        if (file.DESCRIPTION.BOOK === book_name) {
-                            this.add_File(file);
-                        }
+                        file.sniff("DESCRIPTION.BOOK", undefined,
+                            (file_book_name) => {
+                                if (file_book_name === book_name) {
+                                    this.add_File(file);
+                                }
+                            }
+                        )
                     });
                 });
             } else {
