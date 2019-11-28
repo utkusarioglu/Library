@@ -22,6 +22,7 @@ declare module '@utkusarioglu/library/Book/book' {
         readonly RESOLUTION_RULES: any;
         constructor(namespace: t_namespace);
         add_Chapter(item_name: string, item_data: any, per_item_call?: (item: any) => any): this;
+        add_Chapters(chapters: [string, any][], per_item_call?: (item: any) => any): this;
         get_Chapter(item_name: string): any;
         has_Chapter(item_name: string): boolean;
         get_AllChapters(): i_libraryBook;

@@ -113,6 +113,26 @@ export class Book extends M_Namespace {
     }
 
     /**
+     * Adds an array of chapters to the book
+     * 
+     * @param chapters
+     * @param per_item_call
+     *
+     * @remarks
+     * Class: Book
+     * Component: Library
+     */
+    public add_Chapters(
+        chapters: [string, any][],
+        per_item_call: (item: any) => any = (item: any) => item,
+    ): this {
+        chapters.forEach((chapter) => {
+            this.add_Chapter(chapter[0], chapter[1], per_item_call);
+        });
+        return this;
+    }
+
+    /**
      * Returns the value associated with the given key
      * 
      * @param item_name key

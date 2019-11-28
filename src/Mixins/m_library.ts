@@ -93,11 +93,8 @@ export abstract class M_Library extends M_Namespace {
      */
     protected initialize_Library(
         book_names: t_libraryBookName[],
-        library_base?: any,
+        library_base: any = this.get_State().get_Vars(),
     ): this {
-        if (library_base === undefined) {
-            library_base = this.get_State().get_Vars();
-        }
         this.set_LibraryBase(library_base);
         this.initialize_Books(book_names);
         return this;

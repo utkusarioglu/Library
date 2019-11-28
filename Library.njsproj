@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="jest.config.js" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="webpack.config.js" />
@@ -44,6 +45,9 @@
     <Folder Include="src\Common\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="src\Book\book.test.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\Book\book.ts" />
     <TypeScriptCompile Include="src\Common\c_library.ts">
       <SubType>Code</SubType>
