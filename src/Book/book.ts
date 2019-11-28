@@ -123,12 +123,12 @@ export class Book extends M_Namespace {
      * Component: Library
      */
     public add_Chapters(
-        chapters: [string, any][],
+        chapters: {[chapter_name: string]: any},
         per_item_call: (item: any) => any = (item: any) => item,
     ): this {
-        chapters.forEach((chapter) => {
-            this.add_Chapter(chapter[0], chapter[1], per_item_call);
-        });
+        Object.entries(chapters).forEach(([chapter_name, chapter_content]) => {
+            this.add_Chapter(chapter_name, chapter_content, per_item_call);
+        })
         return this;
     }
 
