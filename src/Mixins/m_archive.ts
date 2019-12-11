@@ -9,9 +9,9 @@
  *	DEPENDENCIES
  */
 import { Parent } from "@utkusarioglu/mixer";
-import { Resolution } from "@utkusarioglu/resolver";
+import { Resolution, t_ri, t_ri_any } from "@utkusarioglu/resolver";
 import {
-    M_Controller,
+    M_Controller, i_talk, i_response,
     //M_ControllerEvents
 } from "@utkusarioglu/controller";
 
@@ -42,8 +42,6 @@ import {
     t_archiveTabWrapperFunc,
     t_libraryBookName
 } from "../Common/t_library";
-import { t_transmission } from "@utkusarioglu/controller";
-import { t_resolutionInstruction } from "@utkusarioglu/resolver";
 import { t_namespace } from "@utkusarioglu/namespace";
 
 
@@ -110,7 +108,7 @@ export abstract class M_Archive extends Parent().with(
      * Component: Library
      */
     protected add_Archive_FromResolutionInstruction(
-        resolution_instruction: t_resolutionInstruction,
+        resolution_instruction: t_ri_any,
         load_order: Array<string> = [],
     ): this {
 
@@ -136,7 +134,9 @@ export abstract class M_Archive extends Parent().with(
      * Class: Native
      * Module: Native
      * */
-    protected extract_Archive_FromTransmission(transmission: t_transmission): t_archive {
+    protected extract_Archive_FromTransmission(
+        transmission: i_response<t_archive>
+    ): t_archive {
 
         // TODO type here is fudged. the real type is t_fileContent from Storage
         //const transmission_content: t_fileContent[] = transmission.Content;

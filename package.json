@@ -1,6 +1,6 @@
 {
   "name": "@utkusarioglu/library",
-  "version": "0.0.25",
+  "version": "0.0.27",
   "description": "",
   "main": "index.js",
   "author": {
@@ -33,7 +33,7 @@
     "@utkusarioglu/namespace": "git+https://github.com/utkusarioglu/namespace.git",
     "@utkusarioglu/object-assist": "git+https://github.com/utkusarioglu/ObjectAssist.git",
     "@utkusarioglu/resolver": "git+https://github.com/utkusarioglu/Resolver.git",
-    "@utkusarioglu/state": "https://github.com/utkusarioglu/state.git",
+    "@utkusarioglu/state": "git+https://github.com/utkusarioglu/state.git",
     "@utkusarioglu/string-assist": "git+https://github.com/utkusarioglu/StringAssist.git"
   },
   "repository": {

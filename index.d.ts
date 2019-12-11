@@ -2,8 +2,8 @@
 // Dependencies for this module:
 //   ../@utkusarioglu/namespace
 //   ../@utkusarioglu/state
-//   ../@utkusarioglu/controller
 //   ../@utkusarioglu/resolver
+//   ../@utkusarioglu/controller
 
 declare module '@utkusarioglu/library' {
     export { Book } from "@utkusarioglu/library/Book/book";
@@ -56,17 +56,16 @@ declare module '@utkusarioglu/library/Mixins/m_library' {
 }
 
 declare module '@utkusarioglu/library/Mixins/m_archive' {
-    import { M_Controller } from "@utkusarioglu/controller";
+    import { t_ri_any } from "@utkusarioglu/resolver";
+    import { M_Controller, i_response } from "@utkusarioglu/controller";
     import { M_Library } from "@utkusarioglu/library/Mixins/m_library";
     import { t_archive, e_archiveDepth, i_archiveFile, t_archiveTab, i_fileDescriptor, t_archiveTabWrapperFunc, t_libraryBookName } from "@utkusarioglu/library/Common/t_library";
-    import { t_transmission } from "@utkusarioglu/controller";
-    import { t_resolutionInstruction } from "@utkusarioglu/resolver";
     export interface M_Archive extends M_Controller, M_Library {
     }
     const M_Archive_base: any;
     export abstract class M_Archive extends M_Archive_base {
-        protected add_Archive_FromResolutionInstruction(resolution_instruction: t_resolutionInstruction, load_order?: Array<string>): this;
-        protected extract_Archive_FromTransmission(transmission: t_transmission): t_archive;
+        protected add_Archive_FromResolutionInstruction(resolution_instruction: t_ri_any, load_order?: Array<string>): this;
+        protected extract_Archive_FromTransmission(transmission: i_response<t_archive>): t_archive;
         protected add_Archive(archive: t_archive, load_order?: Array<string>): this;
         protected add_File(file: i_archiveFile): this;
         protected add_Tab(description: i_fileDescriptor, tab: t_archiveTab): this;
