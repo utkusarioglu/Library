@@ -112,12 +112,10 @@ export abstract class M_Archive extends Parent().with(
         load_order: Array<string> = [],
     ): this {
 
-        const arg_pool =
-            Resolution.extract_ArgumentPool_fromResolutionInstruction(
-                resolution_instruction
-            );
-        const sender: t_namespace = arg_pool[0][0];
-        const archive: t_archive = arg_pool[0][1];
+        const args = Resolution.extract_Arguments(resolution_instruction, 0);
+
+        const sender: t_namespace = args[0];
+        const archive: t_archive = args[1];
 
         this.add_Archive(archive, load_order);
         this.announce_LibraryAdded(sender);
