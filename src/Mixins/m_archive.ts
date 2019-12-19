@@ -255,16 +255,17 @@ export abstract class M_Archive extends Parent().with(
 
         if (tab !== undefined) {
             Object.entries(tab as t_archiveTab)
-                .forEach(([leaf_name, leaf]) => {
+                .forEach(([chapter_name, chapter_content]) => {
 
                     const book_name: t_libraryBookName =
                         description.BOOK;
 
                     this
                         .get_Book(book_name)
-                        .add_Chapter(leaf_name, this.get_TabWrapper(
+                        .add_Chapter(chapter_name, this.get_TabWrapper(
                             book_name,
-                            leaf
+                            chapter_content,
+                            chapter_name,
                         ))
 
                 });
@@ -369,7 +370,7 @@ export abstract class M_Archive extends Parent().with(
      * Returns an identity function if no tab wrapper is specified for the book
      * 
      * @param book_name
-     * @param tab_input
+     * @param chapter_content
      * 
      * @remarks
      * Class: M_Archive
@@ -377,13 +378,14 @@ export abstract class M_Archive extends Parent().with(
      */
     protected get_TabWrapper(
         book_name: t_libraryBookName,
-        tab_input: t_archiveTab
+        chapter_content: t_archiveTab,
+        chapter_name: string,
     ): any {
 
         return this.sniff(["_tab_wrapping_function", book_name],
-            () => tab_input,
+            () => chapter_content,
             (func: t_archiveTabWrapperFunc) => {
-                return func(tab_input);
+                return func(chapter_content, chapter_name);
             } 
         )
     }

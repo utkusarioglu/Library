@@ -76,7 +76,7 @@ declare module '@utkusarioglu/library/Mixins/m_archive' {
         protected disable_Pages(): this;
         protected disable_Lines(): this;
         protected enable_Archive_AtDepth(): this;
-        protected get_TabWrapper(book_name: t_libraryBookName, tab_input: t_archiveTab): any;
+        protected get_TabWrapper(book_name: t_libraryBookName, chapter_content: t_archiveTab, chapter_name: string): any;
         protected set_TabWrappers(book_names: t_libraryBookName[], tab_wrapping_function: t_archiveTabWrapperFunc): this;
     }
     export {};
@@ -140,6 +140,6 @@ declare module '@utkusarioglu/library/Common/t_library' {
         Source = 10,
         Reference = 11
     }
-    export type t_archiveTabWrapperFunc = (unwrapped: t_archiveTab) => t_archiveTab;
+    export type t_archiveTabWrapperFunc = (unwrapped: t_archiveTab, book_name: string) => t_archiveTab;
 }
 

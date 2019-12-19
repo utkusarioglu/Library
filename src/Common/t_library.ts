@@ -271,4 +271,5 @@ export enum e_resourceDepth {
 /**
  * Identity function for [[t_archiveTab]]
  * */
-export type t_archiveTabWrapperFunc = (unwrapped: t_archiveTab) => t_archiveTab
+export type t_archiveTabWrapperFunc =
+    (unwrapped: t_archiveTab, book_name: string) => t_archiveTab
